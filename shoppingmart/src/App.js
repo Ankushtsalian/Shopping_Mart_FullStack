@@ -5,6 +5,7 @@ function App() {
     { id: 3, title: "Sneakers" },
     { id: 4, title: "Women" },
     { id: 5, title: "men" },
+    { id: 6, title: "men" },
   ];
   return (
     <div className="catogories-container">
