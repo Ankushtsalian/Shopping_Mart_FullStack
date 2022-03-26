@@ -1,11 +1,6 @@
-import Categorymenu from "../src/components/Menu/Categorymenu";
-
+import Home from "./routes/Home";
 const App = () => {
-  return (
-    <div>
-      <Categorymenu />
-    </div>
-  );
+  return <Home />;
 };
 
 export default App;
