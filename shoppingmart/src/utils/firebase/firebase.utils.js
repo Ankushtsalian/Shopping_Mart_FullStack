@@ -21,3 +21,18 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
+
+//create provider instance to use GoogleAuthProvider
+//may have dfrnt provider so instantiate
+const provider = new GoogleAuthProvider();
+
+//take some config object tell df way google auth prov to behave
+//just google auth UI
+provider.setCustomParameters({
+  prompt: "select_account",
+});
+
+//MUST HAVE SAME AUTH FOR ENTIRE LIFECYCLE OF AN APP
+
+export const auth = getAuth();
+export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
