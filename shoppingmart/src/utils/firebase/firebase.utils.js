@@ -39,4 +39,10 @@ provider.setCustomParameters({
 export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 
+//userAuth from signin as arg
 export const db = getFirestore();
+export const createUserDocumentFromAuth = async (userAuth) => {
+  const userDocRef = doc(db, "users", userAuth.uid);
+  //without user google kkep ref of uid as collection
+  console.log(userDocRef);
+};
