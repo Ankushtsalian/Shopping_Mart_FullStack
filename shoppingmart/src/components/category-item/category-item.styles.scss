@@ -56,10 +56,11 @@
     align-items: center;
     justify-content: center;
     border: 1px solid black;
-    background-color: #323232;
-    opacity: 0;
+    background-color: #1b1a1a;
+    opacity: 0.3;
     position: absolute;
     color: white;
+    border-radius: 5px;
 
     h2 {
       font-weight: bold;
