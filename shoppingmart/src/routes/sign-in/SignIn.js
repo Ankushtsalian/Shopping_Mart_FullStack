@@ -7,7 +7,8 @@ const SignIn = () => {
   };
   return (
     <div>
-      SignIn
+      SignIn with Google
+      <br />
       {/* check for access token in console */}
       <button onClick={logGoogleUser}>sign in with Google popup</button>
     </div>
