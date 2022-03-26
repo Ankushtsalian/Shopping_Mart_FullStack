@@ -1,6 +1,6 @@
 import Categoryitem from "../category-item/category-item";
 import "./menu-container.styles.scss";
-import { categories } from "./categories";
+import { categories } from "./categories-JSON";
 const Categorymenu = () => {
   return (
     <div className="categories-container">
