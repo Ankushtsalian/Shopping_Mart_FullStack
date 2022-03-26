@@ -41,8 +41,38 @@ export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 
 //userAuth from signin as arg
 export const db = getFirestore();
+
 export const createUserDocumentFromAuth = async (userAuth) => {
   const userDocRef = doc(db, "users", userAuth.uid);
-  //without user google kkep ref of uid as collection
-  console.log(userDocRef);
+
+  //   console.log(userDocRef);
+
+  const userSnapshot = await getDoc(userDocRef);
+  //without user google keep ref of uid as collection
+  //   console.log(userSnapshot);
+
+  //   console.log(userSnapshot.exists());
+
+  //if user does not exist
+  //set/create doc with data from userAuth in my colection
+
+  if (!userSnapshot.exists()) {
+    //userAuth is arg passed as response.user in signIn comp
+    //it has  displayName, email methods destructure it
+
+    const { displayName, email } = userAuth;
+    //record date user logged in
+
+    const createdAt = new Date();
+
+    try {
+      await setDoc(userDocRef, { displayName, email, createdAt });
+    } catch (error) {
+      console.log("error creating the user", error.message);
+    }
+  }
+
+  //if user exist
+
+  return userDocRef;
 };

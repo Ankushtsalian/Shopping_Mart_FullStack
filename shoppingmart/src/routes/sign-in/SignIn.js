@@ -8,8 +8,9 @@ const SignIn = () => {
     // const response = await signInWithGooglePopup();
     //user is from resopne just destructuring response as we need only user
     const { user } = await signInWithGooglePopup();
-    // console.log(response);
-    createUserDocumentFromAuth(user);
+    // console.log(user);
+    // createUserDocumentFromAuth(user);
+    const userDocRef = await createUserDocumentFromAuth(user);
   };
   return (
     <div>
