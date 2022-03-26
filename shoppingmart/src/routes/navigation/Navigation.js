@@ -1,11 +1,12 @@
 import { Link, Outlet } from "react-router-dom";
-
+import "./navigation.styles.scss";
+import Logo from "../../assets/logo.svg";
 const Navbar = () => {
   return (
     <>
       <div className="navigation">
         <Link className="logo-container" to="/">
-          <div> Logo </div>
+          <img src={Logo} alt="LOGO" />
         </Link>
 
         <div className="nav-links-container">
@@ -13,8 +14,6 @@ const Navbar = () => {
             SHOP
           </Link>
         </div>
-
-        <h1>N A V I G A T I O N</h1>
       </div>
       <Outlet />
     </>
