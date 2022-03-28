@@ -35,28 +35,20 @@ const SignInForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-      console.log(response);
+      await signInAuthUserWithEmailAndPassword(email, password);
     } catch (error) {
       switch (error.code) {
+        case "auth/user-not-found":
+          alert("No user associated with this Email");
+          break;
         case "auth/wrong-password":
           alert("incorrect password for email");
           break;
-        case "Error (auth/user-not-found)":
-          alert("No user associated with this Email");
-          break;
-
         default:
           console.log(error);
       }
-
-      if (error.code === "auth/wrong-password") {
-        alert("incorrect password for email");
-      }
     }
+
     resetFormFields();
   };
   return (
