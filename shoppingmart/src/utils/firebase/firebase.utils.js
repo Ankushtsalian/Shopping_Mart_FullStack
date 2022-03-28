@@ -24,7 +24,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
+// const firebaseApp=initializeApp(firebaseConfig);
 
 //create provider instance to use GoogleAuthProvider
 //may have dfrnt provider so instantiate

@@ -18,9 +18,19 @@
     align-items: center;
     justify-content: flex-end;
 
-    .nav-link {
+    .nav-link-signin {
       padding: 10px 15px;
       cursor: pointer;
+      color: green;
+      font-weight: bolder;
+      font-size: 20px;
+    }
+    .nav-link-shop {
+      padding: 10px 15px;
+      cursor: pointer;
+      color: blue;
+      font-weight: bolder;
+      font-size: 20px;
     }
   }
 }
