@@ -15,7 +15,7 @@ const SignIn = () => {
   };
   return (
     <div>
-      SignIn with Google
+      <h1>SignIn with Google</h1>
       <br />
       {/* check for access token in console */}
       <button onClick={logGoogleUser}>sign in with Google popup</button>

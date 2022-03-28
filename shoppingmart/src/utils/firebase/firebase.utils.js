@@ -48,16 +48,16 @@ export const signInWithGoogleRedirect = () =>
 //userAuth from signin as arg
 export const db = getFirestore();
 
-export const createUserDocumentFromAuth = async (userAuth) => {
+export const createUserDocumentFromAuth = async (
+  userAuth,
+  additionalInformmation = {}
+) => {
   const userDocRef = doc(db, "users", userAuth.uid);
 
   //   console.log(userDocRef);
 
   const userSnapshot = await getDoc(userDocRef);
   //without user google keep ref of uid as collection
-  //   console.log(userSnapshot);
-
-  //   console.log(userSnapshot.exists());
 
   //if user does not exist
   //set/create doc with data from userAuth in my colection
@@ -72,7 +72,12 @@ export const createUserDocumentFromAuth = async (userAuth) => {
     const createdAt = new Date();
 
     try {
-      await setDoc(userDocRef, { displayName, email, createdAt });
+      await setDoc(userDocRef, {
+        displayName,
+        email,
+        createdAt,
+        ...additionalInformmation,
+      });
     } catch (error) {
       console.log("error creating the user", error.message);
     }
