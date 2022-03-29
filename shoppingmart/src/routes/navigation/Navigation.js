@@ -17,9 +17,13 @@ const Navbar = () => {
           <Link className="nav-link-shop" to="/shop">
             SHOP
           </Link>
-          <Link className="nav-link-signin" to="/SIGN-IN">
-            SIGN IN
-          </Link>
+          {currentUser ? (
+            <span className="nav-link-signin">SIGN OUT</span>
+          ) : (
+            <Link className="nav-link-signin" to="/SIGN-IN">
+              SIGN IN
+            </Link>
+          )}
         </div>
       </div>
       <Outlet />
