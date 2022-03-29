@@ -5,7 +5,7 @@ import { UserContext } from "../../contexts/user.context";
 import { useContext } from "react";
 const Navbar = () => {
   const { currentUser } = useContext(UserContext);
-  console.log(currentUser);
+  // console.log(currentUser);
   return (
     <>
       <div className="navigation">
