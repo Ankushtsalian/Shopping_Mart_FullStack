@@ -1,7 +1,11 @@
 import { Link, Outlet } from "react-router-dom";
 import "./navigation.styles.scss";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
+import { UserContext } from "../../contexts/user.context";
+import { useContext } from "react";
 const Navbar = () => {
+  const { currentUser } = useContext(UserContext);
+  console.log(currentUser);
   return (
     <>
       <div className="navigation">
