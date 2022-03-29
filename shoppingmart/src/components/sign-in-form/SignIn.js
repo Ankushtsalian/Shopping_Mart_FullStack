@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import {
-  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
 } from "../../utils/firebase/firebase.utils";
@@ -24,9 +23,8 @@ const SignInForm = () => {
   const logGoogleUser = async () => {
     // const response = await signInWithGooglePopup();
     //user is from resopne just destructuring response as we need only user
-    const { user } = await signInWithGooglePopup();
+    await signInWithGooglePopup();
     // setCurrentUser(user);
-    await createUserDocumentFromAuth(user);
   };
 
   const resetFormFields = () => {
