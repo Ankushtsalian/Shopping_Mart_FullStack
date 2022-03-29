@@ -26,7 +26,7 @@ const SignInForm = () => {
     // const response = await signInWithGooglePopup();
     //user is from resopne just destructuring response as we need only user
     const { user } = await signInWithGooglePopup();
-    setCurrentUser(user);
+    // setCurrentUser(user);
     await createUserDocumentFromAuth(user);
   };
 
@@ -46,7 +46,7 @@ const SignInForm = () => {
         email,
         password
       );
-      setCurrentUser(user);
+      // setCurrentUser(user);
     } catch (error) {
       switch (error.code) {
         case "auth/user-not-found":
