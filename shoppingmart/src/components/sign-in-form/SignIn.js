@@ -1,13 +1,16 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
+
 import {
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
 } from "../../utils/firebase/firebase.utils";
+
 import Button from "../button/Button";
 import FormInput from "../form-input/FormInput";
 import "./sign-in-form.styles.scss";
+
 const defaultFormsFields = {
   email: "",
   password: "",
@@ -81,6 +84,7 @@ const SignInForm = () => {
           name="password"
           value={password}
         />
+
         <div className="buttons-container">
           <Button type="submit">Sign In</Button>
           {/* check for access token in console */}

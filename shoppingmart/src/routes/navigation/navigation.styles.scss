@@ -21,16 +21,22 @@
     .nav-link-signin {
       padding: 10px 15px;
       cursor: pointer;
-      color: green;
+      color: white;
       font-weight: bolder;
       font-size: 20px;
+      &:hover {
+        color: green;
+      }
     }
     .nav-link-shop {
       padding: 10px 15px;
       cursor: pointer;
-      color: blue;
+      color: white;
       font-weight: bolder;
       font-size: 20px;
+      &:hover {
+        color: green;
+      }
     }
   }
 }
