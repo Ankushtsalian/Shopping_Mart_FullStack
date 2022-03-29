@@ -52,10 +52,10 @@ const SignInForm = () => {
     resetFormFields();
   };
   return (
-    <div className="sign-up-container">
+    <div className="sign-in-container">
       <h2>Already have an account</h2>
       <span>Sign In with Your Email and Password</span>
-      <form onSubmit={handleSubmit}>
+      <form autocomplete="off" onSubmit={handleSubmit}>
         <FormInput
           label="Email"
           type="email"
