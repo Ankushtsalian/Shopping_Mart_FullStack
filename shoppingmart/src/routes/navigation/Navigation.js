@@ -3,9 +3,14 @@ import "./navigation.styles.scss";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { UserContext } from "../../contexts/user.context";
 import { useContext } from "react";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
 const Navbar = () => {
-  const { currentUser } = useContext(UserContext);
-  // console.log(currentUser);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+
+  const signOutHandler = async () => {
+    await signOutUser();
+    setCurrentUser(null);
+  };
   return (
     <>
       <div className="navigation">
@@ -18,7 +23,9 @@ const Navbar = () => {
             SHOP
           </Link>
           {currentUser ? (
-            <span className="nav-link-signin">SIGN OUT</span>
+            <span onClick={signOutHandler} className="nav-link-signin">
+              SIGN OUT
+            </span>
           ) : (
             <Link className="nav-link-signin" to="/SIGN-IN">
               SIGN IN

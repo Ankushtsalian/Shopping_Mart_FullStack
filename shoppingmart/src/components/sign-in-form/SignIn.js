@@ -23,6 +23,7 @@ const SignInForm = () => {
     // const response = await signInWithGooglePopup();
     //user is from resopne just destructuring response as we need only user
     const { user } = await signInWithGooglePopup();
+    setCurrentUser(user);
     await createUserDocumentFromAuth(user);
   };
 
