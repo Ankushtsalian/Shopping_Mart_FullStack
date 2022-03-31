@@ -3,14 +3,14 @@ body {
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  background-color: #323232;
+  padding: 20px 40px;
+  background-color: #1f1f1f;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+// code {
+//   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+//     monospace;
+// }
 
 a {
   text-decoration: none;
