@@ -5,12 +5,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 import { UserProvider } from "./contexts/user.context";
+import { ProductsProvider } from "./contexts/products.context";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <UserProvider>
-        <App />
+        <ProductsProvider>
+          <App />
+        </ProductsProvider>
       </UserProvider>
     </Router>
   </React.StrictMode>,
