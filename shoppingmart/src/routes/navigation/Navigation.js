@@ -6,16 +6,16 @@ import { useContext } from "react";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CartIcon from "../../components/cart-icon/CartIcon";
 import CartDropdown from "../../components/cart-dropdown/CartDropdown";
+import { CartContext } from "../../contexts/cart.context";
 const Navbar = () => {
   const { currentUser } = useContext(UserContext);
-
+  const { isCartOpen } = useContext(CartContext);
   return (
     <>
       <div className="navigation">
         <Link className="logo-container" to="/">
           <Logo className="logo" />
         </Link>
-
         <div className="nav-links-container">
           <Link className="nav-link-shop" to="/shop">
             SHOP
@@ -31,7 +31,7 @@ const Navbar = () => {
           )}
           <CartIcon />
         </div>
-        <CartDropdown />
+        {isCartOpen && <CartDropdown />}
       </div>
       <Outlet />
     </>
