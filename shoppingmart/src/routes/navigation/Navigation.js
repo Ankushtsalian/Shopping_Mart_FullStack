@@ -10,6 +10,7 @@ import { CartContext } from "../../contexts/cart.context";
 const Navbar = () => {
   const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
+
   return (
     <>
       <div className="navigation">
