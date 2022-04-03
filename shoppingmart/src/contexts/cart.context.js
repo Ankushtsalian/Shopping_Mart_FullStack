@@ -26,7 +26,9 @@ const addCartItem = (cartItems, productToAdd) => {
   //else return new item without quantity updated
   return [...cartItems, { ...productToAdd, quantity: 1 }];
 };
-
+const cartTotal = (cartItems) => {
+  return cartItems.reduce((acc, item) => acc + item.quantity, 0);
+};
 const CartProvider = ({ children }) => {
   const [isCartOpen, setisCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
@@ -35,7 +37,13 @@ const CartProvider = ({ children }) => {
     setCartItems(addCartItem(cartItems, productToAdd));
   };
 
-  const value = { isCartOpen, setisCartOpen, cartItems, addItemToCart };
+  const value = {
+    isCartOpen,
+    setisCartOpen,
+    cartItems,
+    addItemToCart,
+    cartTotal,
+  };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
 
