@@ -7,7 +7,9 @@ const ProductCard = ({ product }) => {
   const { name, price, imageUrl } = product;
 
   const { addItemToCart } = useContext(CartContext);
-
+  const addProductToCart = () => {
+    addItemToCart(product);
+  };
   return (
     <div className="product-card-container">
       <img src={imageUrl} alt={`${name}`} />
@@ -15,7 +17,7 @@ const ProductCard = ({ product }) => {
         <span className="name">{name}</span>
         <span className="price">{price}</span>
       </div>
-      <Button onClick={() => addItemToCart(product)} buttonType="inverted">
+      <Button onClick={addProductToCart} buttonType="inverted">
         Add to cart
       </Button>
     </div>
