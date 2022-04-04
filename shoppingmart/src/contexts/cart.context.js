@@ -23,7 +23,6 @@ const addCartItem = (cartItems, productToAdd) => {
 const removeCartItem = (cartItems, productToRemove) => {
   // find if cartItems contains productToAdd
   const itemFound = cartItems.find((item) => item.id === productToRemove.id);
-  console.log(itemFound.quantity);
 
   //if quantity is 1 remove item from cart
   if (itemFound.quantity === 1) {
