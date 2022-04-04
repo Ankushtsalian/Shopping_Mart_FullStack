@@ -7,13 +7,13 @@ const CartIcon = () => {
     setisCartOpen(() => !isCartOpen);
   };
 
-  const { isCartOpen, setisCartOpen, cartItems, cartTotal } =
+  const { isCartOpen, setisCartOpen, cartItems, cartTotalQuantity } =
     useContext(CartContext);
 
   return (
     <div className="cart-icon-container">
       <ShoppingIcon onClick={handleClick} className="shopping-icon" />
-      <span className="item-count">{cartTotal(cartItems)}</span>
+      <span className="item-count">{cartTotalQuantity(cartItems)}</span>
     </div>
   );
 };
