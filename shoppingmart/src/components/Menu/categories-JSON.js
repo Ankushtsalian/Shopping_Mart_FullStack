@@ -24,19 +24,4 @@ export const categories = [
     title: "mens",
     imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
   },
-  {
-    id: 6,
-    title: "sneakers",
-    imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
-  },
-  {
-    id: 7,
-    title: "womens",
-    imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
-  },
-  {
-    id: 8,
-    title: "hats",
-    imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
-  },
 ];
