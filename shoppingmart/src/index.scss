@@ -4,7 +4,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 20px 40px;
-  background-color: #323232;
+  // background-color: #323232;
+  background-color: #062c30;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 code {
