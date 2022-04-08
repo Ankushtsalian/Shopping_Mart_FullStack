@@ -17,6 +17,7 @@ const Navbar = () => {
         <Link className="logo-container" to="/">
           <Logo className="logo" />
         </Link>
+
         <div className="nav-links-container">
           <Link className="nav-link-shop" to="/shop">
             SHOP
