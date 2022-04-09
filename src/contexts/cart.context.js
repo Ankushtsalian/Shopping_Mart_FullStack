@@ -1,4 +1,5 @@
 import { createContext, useReducer } from "react";
+import { createAction } from "../utils/reducer/reducer.utils";
 import { addCartItem, clearCartItem, removeCartItem } from "./cartLogic";
 
 export const CartContext = createContext({
@@ -12,6 +13,11 @@ export const CartContext = createContext({
   cartTotal: () => {},
 });
 
+const CART_ACTION_TYPES = {
+  SET_CART_ITEMS: "SET_CART_ITEMS",
+  SET_IS_CART_OPEN: "SET_IS_CART_OPEN",
+};
+
 const INITIAL_STATE = {
   cartItems: [],
   isCartOpen: false,
@@ -21,9 +27,10 @@ const cartReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case "SET_CART_ITEMS":
+    case CART_ACTION_TYPES.SET_CART_ITEMS:
       return { ...state, ...payload };
-    case "INVERT":
+
+    case CART_ACTION_TYPES.SET_IS_CART_OPEN:
       return { ...state, isCartOpen: payload };
     default:
       return state;
@@ -36,10 +43,11 @@ const CartProvider = ({ children }) => {
   const { cartItems, isCartOpen } = state;
 
   const updateCartItemReducer = (newCartItems) => {
-    dispatch({
-      type: "SET_CART_ITEMS",
-      payload: { cartItems: newCartItems },
-    });
+    dispatch(
+      createAction(CART_ACTION_TYPES.SET_CART_ITEMS, {
+        cartItems: newCartItems,
+      })
+    );
   };
 
   const cartTotalQuantity = (cartItems) => {
@@ -58,13 +66,16 @@ const CartProvider = ({ children }) => {
     const newCartItems = removeCartItem(cartItems, productToRemove);
     updateCartItemReducer(newCartItems);
   };
+
   const clearItemFormCart = (productToRemove) => {
     const newCartItems = clearCartItem(cartItems, productToRemove);
     updateCartItemReducer(newCartItems);
   };
+
   const setisCartOpen = () => {
-    dispatch({ type: "INVERT", payload: !isCartOpen });
+    dispatch(createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, !isCartOpen));
   };
+
   const value = {
     isCartOpen,
     setisCartOpen,
