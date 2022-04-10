@@ -4,10 +4,11 @@ import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
-import { UserProvider } from "./contexts/user.context";
 
 import CartProvider from "./contexts/cart.context";
 import { CategoriesProvider } from "./contexts/categories.context";
+
+import { UserProvider } from "./contexts/user.context";
 
 ReactDOM.render(
   <React.StrictMode>

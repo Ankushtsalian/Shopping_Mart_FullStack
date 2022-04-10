@@ -7,9 +7,21 @@ import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CartIcon from "../../components/cart-icon/CartIcon";
 import CartDropdown from "../../components/cart-dropdown/CartDropdown";
 import { CartContext } from "../../contexts/cart.context";
+// import { useDispatch } from "react-redux";
 const Navbar = () => {
   const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
+
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChangeListener((user) => {
+  //     if (user) {
+  //       createUserDocumentFromAuth(user);
+  //     }
+  //     dispatch(setCurrentUser(user));
+  //   });
+
+  //   return unsubscribe;
+  // }, []);
 
   return (
     <>
