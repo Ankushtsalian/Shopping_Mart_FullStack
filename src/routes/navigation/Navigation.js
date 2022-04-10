@@ -1,28 +1,18 @@
 import { Link, Outlet } from "react-router-dom";
 import "./navigation.styles.scss";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
-import { UserContext } from "../../contexts/user.context";
 import { useContext } from "react";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CartIcon from "../../components/cart-icon/CartIcon";
 import CartDropdown from "../../components/cart-dropdown/CartDropdown";
 import { CartContext } from "../../contexts/cart.context";
-// import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/userSelector";
+
 const Navbar = () => {
-  const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
-
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChangeListener((user) => {
-  //     if (user) {
-  //       createUserDocumentFromAuth(user);
-  //     }
-  //     dispatch(setCurrentUser(user));
-  //   });
-
-  //   return unsubscribe;
-  // }, []);
-
+  const currentUser = useSelector(selectCurrentUser);
+  console.log(currentUser);
   return (
     <>
       <div className="navigation">

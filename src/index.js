@@ -9,18 +9,22 @@ import CartProvider from "./contexts/cart.context";
 import { CategoriesProvider } from "./contexts/categories.context";
 
 import { UserProvider } from "./contexts/user.context";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <UserProvider>
+    <Provider store={store}>
+      <Router>
+        {/* <UserProvider> */}
         <CategoriesProvider>
           <CartProvider>
             <App />
           </CartProvider>
         </CategoriesProvider>
-      </UserProvider>
-    </Router>
+        {/* </UserProvider> */}
+      </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

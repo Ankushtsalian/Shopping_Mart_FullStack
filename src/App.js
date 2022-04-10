@@ -5,8 +5,26 @@ import Navbar from "./routes/navigation/Navigation";
 import SignIn from "./routes/authentication/SignIn";
 import Shop from "./routes/shop/Shop";
 import Checkout from "./routes/checkout/Checkout";
+import {
+  createUserDocumentFromAuth,
+  onAuthStateChangeListener,
+} from "./utils/firebase/firebase.utils";
+
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "./store/user/userAction";
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangeListener((user) => {
+      if (user) {
+        createUserDocumentFromAuth(user);
+      }
+      dispatch({ type: "SET_CURRENT_USER", payload: user });
+    });
+
+    return unsubscribe;
+  }, []);
   return (
     <Routes>
       <Route path="/" element={<Navbar />}>
