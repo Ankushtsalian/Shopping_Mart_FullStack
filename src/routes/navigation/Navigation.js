@@ -11,8 +11,8 @@ import { selectCurrentUser } from "../../store/user/userSelector";
 
 const Navbar = () => {
   const { isCartOpen } = useContext(CartContext);
-  const currentUser = useSelector(selectCurrentUser);
-  console.log(currentUser);
+  const { currentUser } = useSelector(selectCurrentUser);
+
   return (
     <>
       <div className="navigation">

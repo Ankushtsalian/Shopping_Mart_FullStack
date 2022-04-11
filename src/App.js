@@ -12,6 +12,7 @@ import {
 
 import { useDispatch } from "react-redux";
 import { setCurrentUser } from "./store/user/userAction";
+import { USER_ACTION_TYPES } from "./store/user/userTypes";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const App = () => {
       if (user) {
         createUserDocumentFromAuth(user);
       }
-      dispatch({ type: "SET_CURRENT_USER", payload: user });
+      dispatch({ type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user });
     });
 
     return unsubscribe;
