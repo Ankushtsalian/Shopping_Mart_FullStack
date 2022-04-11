@@ -3,7 +3,7 @@ import "./menu-container.styles.scss";
 import { categories } from "./categories-JSON";
 const Categorymenu = () => {
   return (
-    <div className="categories-container">
+    <div className="categorie-container">
       {categories.map((category) => (
         <Categoryitem key={category.id} category={category} />
       ))}
