@@ -11,7 +11,7 @@ import {
 } from "./utils/firebase/firebase.utils";
 
 import { useDispatch } from "react-redux";
-import { setCurrentUser } from "./store/user/userAction";
+// import { setCurrentUser } from "./store/user/userAction";
 import { USER_ACTION_TYPES } from "./store/user/userTypes";
 
 const App = () => {

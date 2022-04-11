@@ -87,6 +87,8 @@ export const getCategoriesAndDocuments = async () => {
     acc[title.toLowerCase()] = items;
     return acc;
   }, {});
+
+  console.log("ran");
   return categoryMap;
 };
 
