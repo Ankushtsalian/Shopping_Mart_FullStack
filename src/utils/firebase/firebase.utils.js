@@ -88,7 +88,6 @@ export const getCategoriesAndDocuments = async () => {
     return acc;
   }, {});
 
-  console.log("ran");
   return categoryMap;
 };
 
