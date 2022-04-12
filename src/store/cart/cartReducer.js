@@ -2,7 +2,7 @@ import { CART_ACTION_TYPES } from "./cartTypes";
 
 const CART_INITIAL_STATE = {
   cartItems: [],
-  isCartOpen: true,
+  isCartOpen: false,
 };
 
 export const cartReducer = (state = CART_INITIAL_STATE, action) => {

@@ -6,7 +6,6 @@ import {
   removeItemFromCart,
 } from "../../store/cart/cartAction";
 
-import { CART_ACTION_TYPES } from "../../store/cart/cartTypes";
 import "./checkout-item.styles.scss";
 
 const CheckoutItem = ({ cartItem, cartItems }) => {
@@ -15,22 +14,13 @@ const CheckoutItem = ({ cartItem, cartItems }) => {
   const dispatch = useDispatch();
 
   const clearItemHandler = () => {
-    dispatch({
-      type: CART_ACTION_TYPES.SET_CART_ITEMS,
-      payload: clearItemFormCart(cartItems, cartItem),
-    });
+    dispatch(clearItemFormCart(cartItems, cartItem));
   };
   const addItemHandler = () => {
-    dispatch({
-      type: CART_ACTION_TYPES.SET_CART_ITEMS,
-      payload: addItemToCart(cartItems, cartItem),
-    });
+    dispatch(addItemToCart(cartItems, cartItem));
   };
   const removeItemHandler = () => {
-    dispatch({
-      type: CART_ACTION_TYPES.SET_CART_ITEMS,
-      payload: removeItemFromCart(cartItems, cartItem),
-    });
+    dispatch(removeItemFromCart(cartItems, cartItem));
   };
 
   return (
