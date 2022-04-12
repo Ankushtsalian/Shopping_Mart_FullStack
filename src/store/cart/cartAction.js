@@ -1,4 +1,4 @@
-import { addCartItem, removeCartItem } from "../../contexts/cartLogic";
+import { addCartItem, removeCartItem } from "./cartLogic";
 import { createAction } from "../../utils/reducer/reducer.utils";
 import { CART_ACTION_TYPES } from "./cartTypes";
 
@@ -19,7 +19,6 @@ export const removeItemFromCart = (cartItems, productToRemove) => {
 
 export const clearItemFormCart = (cartItems, productToRemove) => {
   const newCartItems = clearCartItem(cartItems, productToRemove);
-
   return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
 };
 
