@@ -3,7 +3,7 @@ import "./button.styles.scss";
 // default
 // google signin
 
-const BUTTON_TYPE_CLASSES = {
+export const BUTTON_TYPE_CLASSES = {
   google: "google-sign-in",
   inverted: "inverted",
 };
