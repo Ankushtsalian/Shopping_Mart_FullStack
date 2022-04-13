@@ -8,7 +8,7 @@ import Category from "../category/Category";
 const Shop = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(fetchCategoriesAsync()), []);
+  useEffect(() => dispatch(fetchCategoriesAsync()), [dispatch]);
 
   return (
     <Routes>
