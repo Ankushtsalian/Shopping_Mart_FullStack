@@ -11,7 +11,7 @@ const PaymentForm = () => {
     if (!stripe || !elements) {
       return;
     }
-    const response = await fetch("/netlify/functionscreate-Payment-Intent.js", {
+    const response = await fetch("/.netlify/functions/create-Payment-intent", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
