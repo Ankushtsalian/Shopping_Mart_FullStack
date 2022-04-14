@@ -2,7 +2,6 @@ require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async (event) => {
-  console.log(event);
   try {
     const { amount } = JSON.parse(event.body);
 
@@ -18,6 +17,7 @@ exports.handler = async (event) => {
     };
   } catch (error) {
     console.log({ error });
+
     return {
       statusCode: 400,
       body: JSON.stringify({ error }),
