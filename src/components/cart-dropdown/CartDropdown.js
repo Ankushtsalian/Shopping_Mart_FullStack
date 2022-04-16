@@ -16,6 +16,7 @@ const CartDropdown = () => {
   const goToCheckoutHandler = useCallback(() => {
     navigate("/checkout");
   }, [navigate]);
+
   return (
     <div className="cart-dropdown-container">
       <div className="cart-items">
