@@ -1,13 +1,12 @@
 import React from "react";
 import { useCallback } from "react";
-
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
 import { selectCartItems } from "../../store/cart/cartSelector";
 import Button from "../button/Button";
 import CartItem from "../cartItem/CartItem";
 import "./cart-dropdown.styles.scss";
+
 const CartDropdown = () => {
   const cartItems = useSelector(selectCartItems);
 

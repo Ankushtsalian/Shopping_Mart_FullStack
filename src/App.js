@@ -1,18 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "../src/routes/home/Home";
-import Navbar from "./routes/navigation/Navigation";
-import SignIn from "./routes/authentication/SignIn";
-import Shop from "./routes/shop/Shop";
-import Checkout from "./routes/checkout/Checkout";
 import {
   createUserDocumentFromAuth,
   onAuthStateChangeListener,
 } from "./utils/firebase/firebase.utils";
 
 import { useDispatch } from "react-redux";
-// import { setCurrentUser } from "./store/user/userAction";
+
 import { USER_ACTION_TYPES } from "./store/user/userTypes";
+import { Suspense } from "react";
+import Spinner from "./components/spinner/Spinner";
+const Home = lazy(() => import("../src/routes/home/Home"));
+const Navbar = lazy(() => import("./routes/navigation/Navigation"));
+const SignIn = lazy(() => import("./routes/authentication/SignIn"));
+const Shop = lazy(() => import("./routes/shop/Shop"));
+const Checkout = lazy(() => import("./routes/checkout/Checkout"));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -27,14 +29,16 @@ const App = () => {
     return unsubscribe;
   }, [dispatch]);
   return (
-    <Routes>
-      <Route path="/" element={<Navbar />}>
-        <Route index element={<Home />} />
-        <Route path="shop/*" element={<Shop />} />
-        <Route path="sign-In" element={<SignIn />} />
-        <Route path="checkout" element={<Checkout />} />
-      </Route>
-    </Routes>
+    <Suspense fallback={<Spinner />}>
+      <Routes>
+        <Route path="/" element={<Navbar />}>
+          <Route index element={<Home />} />
+          <Route path="shop/*" element={<Shop />} />
+          <Route path="sign-In" element={<SignIn />} />
+          <Route path="checkout" element={<Checkout />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 };
 
